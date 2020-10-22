@@ -1,0 +1,25 @@
+form.login-form button.login-button {
+  width: 100%;
+  max-width: 400px;
+}
+
+form.login-form button.login-button {
+  margin-top: 2rem;
+
+  width: 100%;
+  height: 64px;
+  border: 0;
+  cursor: pointer;
+  background: #9BE3BF;
+  border-radius: 20px;
+  color: #FFFFFF;
+  font-weight: 800;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form.remind-me button.login-button {
+  margin-top: 64px;
+}

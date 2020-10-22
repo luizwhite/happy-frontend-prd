@@ -1,0 +1,38 @@
+#login-area {
+  display: flex;
+  height: 100vh;
+}
+
+form.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 64px 80px;
+}
+
+form.login-form fieldset {
+  width: 100%;
+  max-width: 400px;
+}
+
+form.login-form fieldset {
+  border: 0;
+}
+
+form.login-form fieldset legend {
+  margin-bottom: 1rem;
+  padding-bottom: 24px;
+  
+  font-size: 32px;
+  line-height: 34px;
+  color: #5C8599;
+  font-weight: 700;
+}
+
+/* Page PasswordReset */
+form.login-form fieldset p {
+  line-height: 28px;
+  color: #5C8599;
+  margin-bottom: 3rem;
+}

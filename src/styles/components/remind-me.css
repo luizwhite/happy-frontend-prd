@@ -1,0 +1,88 @@
+form.login-form .input-block input[type=checkbox] {
+  opacity: 0;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+
+  z-index: 10;
+}
+
+form.login-form .input-block .checkbox-control {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 8px;
+  border: 1px solid #D3E2E5;
+  background-color: #F5F8FA;
+}
+
+form.login-form .input-block .checkbox-control:after {
+  content: "";
+  position: absolute;
+  display: none;
+
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+form.login-form .input-block input[type=checkbox]:checked ~ .checkbox-control {
+  background-color: #37C77F;
+}
+
+form.login-form .input-block input[type=checkbox]:checked ~ .checkbox-control:after {
+  display: block;
+}
+
+/* form.login-form .input-block input[type=checkbox]:not(:checked) ~ .checkbox-control:hover {
+  background-color: #E5E5E5;
+} */
+
+form.remind-me .input-block:last-child {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+form.remind-me .input-block:last-child label {
+  margin: 0 0 0 10px;
+}
+
+form.remind-me .input-block:last-child .forgot-password {
+  margin: 0;
+  position: absolute;
+  right: 0;
+
+  transition: text 0.6s;
+}
+
+form.remind-me .input-block:last-child .forgot-password:after, form.remind-me .input-block:last-child .forgot-password:before {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 1px;
+  position: absolute;
+  bottom: -5px;
+  background-color: #D3E2E5;
+
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+
+form.remind-me .input-block:last-child .forgot-password:after {
+  left: 50%;
+}
+
+form.remind-me .input-block:last-child .forgot-password:before {
+  right: 50%;
+}
+
+form.remind-me .input-block:last-child .forgot-password:hover:after, form.remind-me .input-block:last-child .forgot-password:hover:before {
+  opacity: 1;
+  width: 50%;
+}

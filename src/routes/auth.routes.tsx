@@ -10,6 +10,7 @@ import CreateOrphanage from '../pages/CreateOrphanage';
 import UserLogin from '../pages/UserLogin';
 import PasswordReset from '../pages/PasswordReset';
 import NewPassword from '../pages/NewPassword';
+import RegisterUser from '../pages/RegisterUser';
 
 const PublicRoutes: React.FC = () => (
   <BrowserRouter>
@@ -17,6 +18,7 @@ const PublicRoutes: React.FC = () => (
       <Redirect from="/dashboard" to="/" />
       <Route path="/" exact component={Landing} />
       <Route path="/app" component={OrphanagesMap} />
+      <Route path="/register" exact component={RegisterUser} />
       <Route path="/login" exact component={UserLogin} />
       <Route path="/login/password-reset" component={PasswordReset} />
       <Route path="/login/new-password" component={NewPassword} />

@@ -12,6 +12,7 @@ const AdminRoutes: React.FC = () => (
     <Switch>
       <Redirect exact from="/" to="/dashboard" />
       <Redirect from="/login" to="/dashboard" />
+      <Redirect from="/register" to="/dashboard" />
       <Redirect from="/app" to="/dashboard" />
       <Route path="/dashboard" exact component={Dashboard} />
       <Route path="/dashboard/delete/:id" component={DeleteOrphanageScreen} />

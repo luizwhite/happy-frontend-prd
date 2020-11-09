@@ -28,16 +28,19 @@ export function signIn(user: User): Promise<ResponseAuth> {
     .catch((err) => err.response.data);
 }
 
-export function signOut(/* user: User */): Promise<object> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        token: 'aklshdaijhsdjkahsdkhaksdadq1231231kjhk2j1jjkand1u',
-        user: {
-          name: 'Luiz',
-          email: 'luiz@email.com',
-        },
-      });
-    }, 2000);
-  });
+// export function signOut(user: User): Promise<object> {
+export function signOut(): void {
+  localStorage.clear();
+
+  // return new Promise((resolve) => {
+  //   setTimeout(() => {
+  //     resolve({
+  //       token: 'aklshdaijhsdjkahsdkhaksdadq1231231kjhk2j1jjkand1u',
+  //       user: {
+  //         name: 'Luiz',
+  //         email: 'luiz@email.com',
+  //       },
+  //     });
+  //   }, 2000);
+  // });
 }

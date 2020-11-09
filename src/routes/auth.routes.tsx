@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import Landing from '../pages/Landing';
 import OrphanagesMap from '../pages/OrphanagesMap';
@@ -14,6 +14,7 @@ const PublicRoutes: React.FC = () => {
   return (
     <BrowserRouter>
       <Switch>
+        <Redirect from='/dashboard' to='/' />
         <Route path='/' exact component={Landing} />
         <Route path='/app' component={OrphanagesMap} />
         <Route path='/login' exact component={UserLogin} />

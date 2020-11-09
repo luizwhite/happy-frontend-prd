@@ -1,10 +1,11 @@
 aside.app-sidebar {
   position: fixed;
+  left: 0;
   height: 100%;
   padding: 32px 24px;
   /* background: linear-gradient(329.54deg, #15B6D6 0%, #15D6D6 100%); */
   /* background: linear-gradient(160deg,#15b6d6 0%, #15d685 100%); */
-  background: linear-gradient(160deg,#15b6d6 0%, #15d6b3 100%);
+  background: linear-gradient(160deg, #15b6d6 0%, #15d6b3 100%);
 
   display: flex;
   flex-direction: column;
@@ -16,14 +17,25 @@ aside.app-sidebar img {
   width: 48px;
 }
 
-aside.app-sidebar footer a,
-aside.app-sidebar footer button {
+aside.app-sidebar div.middle-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+aside.app-sidebar div.middle-buttons a,
+aside.app-sidebar div.middle-buttons button {
+  margin: 5px 0;
+  color: #fff;
+}
+
+aside.app-sidebar a,
+aside.app-sidebar button {
   width: 48px;
   height: 48px;
 
   border: 0;
 
-  background: #12AFCB;
+  background: #12ba9b;
   border-radius: 16px;
 
   cursor: pointer;
@@ -35,7 +47,18 @@ aside.app-sidebar footer button {
   align-items: center;
 }
 
-aside.app-sidebar footer a:hover,
-aside.app-sidebar footer button:hover {
-  background: #17D6EB;
+aside.app-sidebar a:hover,
+aside.app-sidebar button:hover {
+  background: #17e8c2;
+}
+
+aside.app-sidebar div a.current-page-button,
+aside.app-sidebar div button.current-page-button {
+  background-color: #ffd666;
+  color: #0089a5;
+}
+
+aside.app-sidebar div.middle-buttons a.current-page-button:hover,
+aside.app-sidebar div.middle-buttons button.current-page-button:hover {
+  background-color: #ffe499;
 }

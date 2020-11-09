@@ -1,18 +1,18 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { ChangeEvent, FormEvent, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
-import api from "../services/api";
+import api from '../services/api';
 
-import { FiPlus } from "react-icons/fi";
-import Sidebar from "../components/Sidebar";
-import mapIcon from "../utils/mapIcon";
+import { FiPlus } from 'react-icons/fi';
+import Sidebar from '../components/Sidebar';
+import mapIcon from '../utils/mapIcon';
 
 import '../styles/pages/create-orphanage.css';
 
 export default function CreateOrphanage() {
   const history = useHistory();
-  
+
   const [positionLatLng, setPositionLatLng] = useState({
     latitude: 0,
     longitude: 0,
@@ -24,14 +24,14 @@ export default function CreateOrphanage() {
   const [open_on_weekends, setOpenOnWeekends] = useState(true);
   const [images, setImages] = useState<File[]>([]);
   const [previewImages, setPreviewImages] = useState<string[]>([]);
-  
+
   function handleMapClick(event: LeafletMouseEvent) {
     const { lat, lng } = event.latlng;
-    
+
     setPositionLatLng({
       latitude: lat,
       longitude: lng,
-    })
+    });
   }
 
   function handleSelectImages(event: ChangeEvent<HTMLInputElement>) {
@@ -44,7 +44,7 @@ export default function CreateOrphanage() {
     setImages(selectedImages);
 
     const selectedImagesPreview = selectedImages.map((image) => {
-      return URL.createObjectURL(image)
+      return URL.createObjectURL(image);
     });
 
     setPreviewImages(selectedImagesPreview);
@@ -64,7 +64,7 @@ export default function CreateOrphanage() {
     data.append('instructions', instructions);
     data.append('opening_hours', opening_hours);
     data.append('open_on_weekends', String(open_on_weekends));
-    
+
     images.forEach((image) => {
       data.append('images', image);
     });
@@ -75,110 +75,115 @@ export default function CreateOrphanage() {
     history.push('/app');
 
     // api.post('orphanages', data).then(response => {
-        // alert('');
+    // alert('');
     // });
   }
 
   return (
-    <div id="page-create-orphanage">
+    <div id='page-create-orphanage'>
       <Sidebar />
 
       <main>
-        <form onSubmit={handleSubmit} className="create-orphanage-form">
+        <form onSubmit={handleSubmit} className='create-orphanage-form'>
           <fieldset>
             <legend>Dados</legend>
 
-            <Map 
-              center={[-22.9035416,-47.043234]} 
+            <Map
+              center={[-22.9035416, -47.043234]}
               style={{ width: '100%', height: 280 }}
               zoom={14}
               onClick={handleMapClick}
             >
-              <TileLayer 
+              <TileLayer
                 url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
               />
 
-              { positionLatLng.latitude !== 0 && (
+              {positionLatLng.latitude !== 0 && (
                 <Marker
                   interactive={false}
                   icon={mapIcon}
-                  position={[positionLatLng.latitude,positionLatLng.longitude]}
+                  position={[positionLatLng.latitude, positionLatLng.longitude]}
                 />
-              ) }
+              )}
             </Map>
 
-            <div className="input-block">
-              <label htmlFor="name">Nome</label>
+            <div className='input-block'>
+              <label htmlFor='name'>Nome</label>
               <input
-                id="name"
+                id='name'
                 value={name}
-                onChange={e => setName(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
 
-            <div className="input-block">
-              <label htmlFor="about">Sobre <span>Máximo de 300 caracteres</span></label>
+            <div className='input-block'>
+              <label htmlFor='about'>
+                Sobre <span>Máximo de 300 caracteres</span>
+              </label>
               <textarea
-                id="name"
+                id='name'
                 maxLength={300}
                 value={about}
-                onChange={e => setAbout(e.target.value)}
+                onChange={(e) => setAbout(e.target.value)}
               />
             </div>
 
-            <div className="input-block">
-              <label htmlFor="images">Fotos</label>
+            <div className='input-block'>
+              <label htmlFor='images'>Fotos</label>
 
-              <div className="images-container">
+              <div className='images-container'>
                 {previewImages.map((image) => {
-                  return (
-                    <img key={image} src={image} alt={name} />
-                  )
+                  return <img key={image} src={image} alt={name} />;
                 })}
-                
-                <label htmlFor="image[]" className="new-image">
-                  <FiPlus size={24} color="#15b6d6" />
+
+                <label htmlFor='image[]' className='new-image'>
+                  <FiPlus size={24} color='#15b6d6' />
                 </label>
               </div>
 
-              <input multiple onChange={handleSelectImages} type="file" id="image[]"/>
+              <input
+                multiple
+                onChange={handleSelectImages}
+                type='file'
+                id='image[]'
+              />
             </div>
           </fieldset>
 
           <fieldset>
             <legend>Visitação</legend>
 
-            <div className="input-block">
-              <label htmlFor="instructions">Instruções</label>
+            <div className='input-block'>
+              <label htmlFor='instructions'>Instruções</label>
               <textarea
-                id="instructions"
+                id='instructions'
                 value={instructions}
-                onChange={e => setInstructions(e.target.value)}
+                onChange={(e) => setInstructions(e.target.value)}
               />
             </div>
 
-            <div className="input-block">
-              <label htmlFor="opening_hours">Horário de funcionamento</label>
+            <div className='input-block'>
+              <label htmlFor='opening_hours'>Horário de funcionamento</label>
               <input
-                id="opening_hours"
+                id='opening_hours'
                 value={opening_hours}
-                onChange={e => setOpeningHours(e.target.value)}
+                onChange={(e) => setOpeningHours(e.target.value)}
               />
             </div>
 
-            <div className="input-block">
-              <label htmlFor="open_on_weekends">Atende fim de semana</label>
+            <div className='input-block'>
+              <label htmlFor='open_on_weekends'>Atende fim de semana</label>
 
-              <div className="button-select">
+              <div className='button-select'>
                 <button
-                  type="button"
+                  type='button'
                   className={open_on_weekends ? 'active' : ''}
                   onClick={() => setOpenOnWeekends(true)}
                 >
                   Sim
                 </button>
                 <button
-                  type="button"
+                  type='button'
                   className={!open_on_weekends ? 'active-closed' : ''}
                   onClick={() => setOpenOnWeekends(false)}
                 >
@@ -188,7 +193,7 @@ export default function CreateOrphanage() {
             </div>
           </fieldset>
 
-          <button className="confirm-button" type="submit">
+          <button className='confirm-button' type='submit'>
             Confirmar
           </button>
         </form>

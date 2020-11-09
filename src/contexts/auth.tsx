@@ -37,21 +37,21 @@ export const AuthProvider: React.FC = ({ children }) => {
       api.defaults.headers['Authorization'] = `Bearer ${tokenStored}`;
       setUser(JSON.parse(userStored));
     }
-    console.log(userStored);
+    // console.log(userStored);
 
     setLoading(false);
   }, []);
 
-  useEffect(() => {
+  /* useEffect(() => {
     console.log(!!user);
-    console.log(user === null);
     console.log(api.defaults.headers['Authorization']);
-  }, [user]);
+  }, [user]); */
 
   async function signIn(credentials: Credentials) {
     const resData = await auth.signIn(credentials);
 
     if (!resData.error && resData.user && resData.token) {
+      // corrigir interface ResponseAuth
       setUser(resData.user);
 
       api.defaults.headers['Authorization'] = `Bearer ${resData.token}`;

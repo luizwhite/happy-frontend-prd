@@ -28,7 +28,7 @@ export function signIn(user: User): Promise<ResponseAuth> {
     .catch((err) => err.response.data);
 }
 
-export function signOut(user: User): Promise<object> {
+export function signOut(/* user: User */): Promise<object> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Map, Marker, TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import { FiEdit3, FiTrash } from 'react-icons/fi';
 
 import '../styles/components/orphanage-card.css';
@@ -19,11 +19,11 @@ export default function OrphanageCard({
   longitude,
   name,
   OId,
-}: Props) {
+}: Props): JSX.Element {
   return (
-    <div className='card-container'>
+    <div className="card-container">
       {/* <div className='leaflet-container'></div> */}
-      <Map
+      <MapContainer
         center={[latitude, longitude]}
         zoom={16}
         dragging={false}
@@ -40,16 +40,16 @@ export default function OrphanageCard({
           icon={mapIcon}
           position={[latitude, longitude]}
         />
-      </Map>
+      </MapContainer>
 
       <div>
         <strong>{name}</strong>
         <div>
-          <button>
-            <FiEdit3 size={24} color='#15C3D6' />
+          <button type="button">
+            <FiEdit3 size={24} color="#15C3D6" />
           </button>
           <Link to={`/dashboard/delete/${OId}`}>
-            <FiTrash size={24} color='#15C3D6' />
+            <FiTrash size={24} color="#15C3D6" />
           </Link>
         </div>
       </div>

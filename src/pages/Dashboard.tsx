@@ -13,7 +13,7 @@ interface Orphanage {
   name: string;
 }
 
-export default function Dashboard() {
+export default function Dashboard(): JSX.Element {
   const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
   const dashboard = true;
 
@@ -24,13 +24,13 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div id='page-dashboard'>
+    <div id="page-dashboard">
       <Sidebar {...{ dashboard }} />
 
-      <main className='content-wrapper'>
+      <main className="content-wrapper">
         <h1>Orfanatos Cadastrados</h1>
 
-        <div className='cards-wrapper'>
+        <div className="cards-wrapper">
           {orphanages.map((orphanage) => (
             <OrphanageCard
               key={orphanage.id}

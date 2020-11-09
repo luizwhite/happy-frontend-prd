@@ -5,11 +5,14 @@ import { FiArrowLeft } from 'react-icons/fi';
 import '../styles/components/sideform-container.css';
 
 interface Props {
-  goBackButton: boolean,
-  children: React.ReactNode
+  goBackButton: boolean;
+  children: React.ReactNode;
 }
 
-export default function SideFormContainer({ goBackButton, children }: Props) {
+export default function SideFormContainer({
+  goBackButton,
+  children,
+}: Props): JSX.Element {
   const { goBack } = useHistory();
 
   return (

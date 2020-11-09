@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable object-curly-newline */
 import React from 'react';
 import { FiArrowLeft, FiPower, FiMapPin, FiAlertCircle } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
@@ -13,7 +15,7 @@ export default function Sidebar({
 }: {
   dashboard?: boolean;
   dashboardEntries?: boolean;
-}) {
+}): JSX.Element {
   const { goBack, push } = useHistory();
   const { signOut } = useAuth();
 
@@ -22,28 +24,28 @@ export default function Sidebar({
   }
 
   return (
-    <aside className='app-sidebar'>
-      <img src={mapMarkerImg} alt='Happy' />
+    <aside className="app-sidebar">
+      <img src={mapMarkerImg} alt="Happy" />
 
       {!dashboard ? (
         <footer>
-          <button type='button' onClick={goBack}>
-            <FiArrowLeft size={24} color='#FFF' />
+          <button type="button" onClick={goBack}>
+            <FiArrowLeft size={24} color="#FFF" />
           </button>
         </footer>
       ) : (
         <>
-          <div className='middle-buttons'>
+          <div className="middle-buttons">
             <button
               className={!dashboardEntries ? 'current-page-button' : ''}
-              type='button'
+              type="button"
               onClick={dashboardEntries ? () => push('/dashboard') : () => {}}
             >
               <FiMapPin size={24} />
             </button>
             <button
               className={dashboardEntries ? 'current-page-button' : ''}
-              type='button'
+              type="button"
               onClick={
                 !dashboardEntries ? () => push('/dashboard/pending') : () => {}
               }
@@ -53,8 +55,8 @@ export default function Sidebar({
           </div>
 
           <footer>
-            <button type='button' onClick={handleLogout}>
-              <FiPower size={24} color='#FFF' />
+            <button type="button" onClick={handleLogout}>
+              <FiPower size={24} color="#FFF" />
             </button>
           </footer>
         </>

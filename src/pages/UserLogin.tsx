@@ -8,7 +8,7 @@ import { useAuth } from '../contexts/auth';
 
 import '../styles/pages/login.css';
 
-export default function UserLogin() {
+export default function UserLogin(): JSX.Element {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [remindMe, setRemindMe] = useState(true);
@@ -30,34 +30,34 @@ export default function UserLogin() {
   }
 
   return (
-    <div id='login-area'>
+    <div id="login-area">
       <Sidebanner />
 
-      <SideFormContainer goBackButton={true}>
-        <form onSubmit={handleSubmit} className='login-form remind-me'>
+      <SideFormContainer goBackButton>
+        <form onSubmit={handleSubmit} className="login-form remind-me">
           <fieldset>
             <legend>Fazer Login</legend>
 
             <InputBlock
-              id='email'
-              inputLabel='E-mail'
+              id="email"
+              inputLabel="E-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
 
             <InputBlock
-              id='password'
-              inputLabel='Senha'
+              id="password"
+              inputLabel="Senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
 
             <RemindMe
-              id='remind-me'
+              id="remind-me"
               checked={remindMe}
               onChange={(e) => setRemindMe(e.target.checked)}
-              inputLabel='Lembrar-me'
-              linkToPage='/login/password-reset'
+              inputLabel="Lembrar-me"
+              linkToPage="/login/password-reset"
             />
           </fieldset>
 

@@ -7,11 +7,11 @@ import '../styles/pages/landing.css';
 
 import logoImg from '../images/logo.svg';
 
-function Landing() {
+function Landing(): JSX.Element {
   return (
     <div id="page-landing" className="App">
       <div className="content-wrapper">
-        <img src={logoImg} alt="Happy"/>
+        <img src={logoImg} alt="Happy" />
 
         <main>
           <h1>Leve felicidade para o mundo</h1>

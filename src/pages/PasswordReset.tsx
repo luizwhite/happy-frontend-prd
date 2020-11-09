@@ -7,21 +7,18 @@ import SideFormContainer from '../components/SideFormContainer';
 
 import '../styles/pages/login.css';
 
-export default function PasswordReset() {
+export default function PasswordReset(): JSX.Element {
   const [email, setEmail] = useState('');
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    
   }
 
-  return(
+  return (
     <div id="login-area">
       <Sidebanner />
 
-      <SideFormContainer
-        goBackButton={true}
-      >
+      <SideFormContainer goBackButton>
         <form onSubmit={handleSubmit} className="login-form">
           <fieldset>
             <legend>Esqueci a senha</legend>
@@ -38,11 +35,8 @@ export default function PasswordReset() {
             />
           </fieldset>
 
-          <LogInButton>
-            Enviar
-          </LogInButton>
+          <LogInButton>Enviar</LogInButton>
         </form>
-
       </SideFormContainer>
     </div>
   );

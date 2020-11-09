@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import * as auth from '../services/auth';
 import api from '../services/api';
@@ -34,7 +35,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     if (userStored !== null) {
       const tokenStored = localStorage.getItem('@HappyAuth:token');
-      api.defaults.headers['Authorization'] = `Bearer ${tokenStored}`;
+      api.defaults.headers.Authorization = `Bearer ${tokenStored}`;
       setUser(JSON.parse(userStored));
     }
     // console.log(userStored);
@@ -54,12 +55,12 @@ export const AuthProvider: React.FC = ({ children }) => {
       // corrigir interface ResponseAuth
       setUser(resData.user);
 
-      api.defaults.headers['Authorization'] = `Bearer ${resData.token}`;
+      api.defaults.headers.Authorization = `Bearer ${resData.token}`;
 
       localStorage.setItem('@HappyAuth:user', JSON.stringify(resData.user));
       localStorage.setItem('@HappyAuth:token', resData.token);
     } else {
-      console.log(resData.error);
+      // console.log(resData.error);
     }
   }
 
@@ -70,14 +71,20 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ signed: !!user, user, signIn, signOut, loading }}
+      value={{
+        signed: !!user,
+        user,
+        signIn,
+        signOut,
+        loading,
+      }}
     >
       {children}
     </AuthContext.Provider>
   );
 };
 
-export function useAuth() {
+export function useAuth(): AuthContextData {
   const context = useContext(AuthContext);
 
   return context;

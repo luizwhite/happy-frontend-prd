@@ -13,7 +13,7 @@ interface Orphanage {
   name: string;
 }
 
-function DeleteOrphanageScreen() {
+function DeleteOrphanageScreen(): JSX.Element {
   const { push, goBack } = useHistory();
   const params = useParams<OrphanageParams>();
   const [orphanage, setOrphanage] = useState<Orphanage>();
@@ -35,13 +35,17 @@ function DeleteOrphanageScreen() {
   }
 
   return (
-    <div id='page-delete-orphanage'>
-      <div className='content-wrapper'>
+    <div id="page-delete-orphanage">
+      <div className="content-wrapper">
         <main>
           <h1>Excluir!</h1>
           <p>{`Você tem certeza que quer excluir ${orphanage.name}?`}</p>
-          <button onClick={handleDeleteOrphanage}>Sim!</button>
-          <button onClick={goBack}>Não, volte para o dashboard</button>
+          <button type="button" onClick={handleDeleteOrphanage}>
+            Sim!
+          </button>
+          <button type="button" onClick={goBack}>
+            Não, volte para o dashboard
+          </button>
         </main>
       </div>
     </div>

@@ -4,15 +4,15 @@ import Sidebar from '../components/Sidebar';
 
 import '../styles/pages/dashboard.css';
 
-export default function DashboardPending() {
+export default function DashboardPending(): JSX.Element {
   const dashboard = true;
   const dashboardEntries = true;
 
   return (
-    <div id='page-dashboard'>
+    <div id="page-dashboard">
       <Sidebar {...{ dashboard, dashboardEntries }} />
 
-      <main className='content-wrapper'>
+      <main className="content-wrapper">
         <h1>Cadastros Pendentes</h1>
       </main>
     </div>

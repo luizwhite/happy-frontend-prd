@@ -7,22 +7,19 @@ import SideFormContainer from '../components/SideFormContainer';
 
 import '../styles/pages/login.css';
 
-export default function NewPassword() {
+export default function NewPassword(): JSX.Element {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    
   }
 
-  return(
+  return (
     <div id="login-area">
       <Sidebanner />
 
-      <SideFormContainer
-        goBackButton={true}
-      >
+      <SideFormContainer goBackButton>
         <form onSubmit={handleSubmit} className="login-form">
           <fieldset>
             <legend>Redefinição de Senha</legend>
@@ -36,7 +33,7 @@ export default function NewPassword() {
               inputLabel="Nova senha"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              eyeCheck={true}
+              eyeCheck
             />
 
             <InputBlock
@@ -44,15 +41,12 @@ export default function NewPassword() {
               inputLabel="Repetir senha"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              eyeCheck={true}
+              eyeCheck
             />
           </fieldset>
 
-          <LogInButton>
-            Redefinir
-          </LogInButton>
+          <LogInButton>Redefinir</LogInButton>
         </form>
-
       </SideFormContainer>
     </div>
   );

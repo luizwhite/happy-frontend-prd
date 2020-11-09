@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import Routes from './routes';
 import { AuthProvider } from './contexts/auth';
 
-function App() {
+function App(): JSX.Element {
   return (
     <AuthProvider>
       <Routes />
